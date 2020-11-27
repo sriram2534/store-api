@@ -4,6 +4,7 @@
   "description": "",
   "main": "config.js",
   "dependencies": {
+    "bunyan": "^1.8.14",
     "lodash": "^4.17.20",
     "mongoose": "^5.9.20",
     "serverless": "^1.74.0",

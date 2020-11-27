@@ -1,3 +1,5 @@
+const bunyan = require('bunyan')
+
 let initLogger = function (event, context) {
   let requestId = ''
 
@@ -20,3 +22,5 @@ let initLogger = function (event, context) {
     requestID: requestId,
   })
 }
+
+module.exports = { initLogger }
