@@ -7,16 +7,20 @@ service: initial-serverless
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
 
-provider:
-    name: aws
-    runtime: nodejs12.x
-
-# you can overwrite defaults here
-stage: dev
-region: us-east-1
-
 plugins:
-    - serverless-offline
+  - serverless-offline
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  environment:
+    DB_CONNECTION_URL: ${file(./config/config.${opt:stage, self:provider.stage}.json):MONGO_CONNECTION_STRING}
+    LAMBDA: custom-store-${opt:stage, self:provider.stage}
+    LOG_LEVEL: TRACE
+
+# # you can overwrite defaults here
+# stage: dev
+# region: us-east-1
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
@@ -35,11 +39,10 @@ plugins:
 #            - "/*"
 
 # you can define service wide environment variables here
-environment:
-    variable1: value1
-    stage: dev
-    environment:
-        DB_CONNECTION_URL: ${file(./config/config.${opt:stage, self:provider.stage}.json):MONGO_CONNECTION_STRING}
+#environment:
+# variable1: value1
+# stage: dev
+# DB_CONNECTION_URL: ${file(./config/config.${opt:stage, self:provider.stage}.json):MONGO_CONNECTION_STRING}
 
 # you can add packaging information here
 #package:
@@ -51,22 +54,23 @@ environment:
 #    - exclude-me-dir/**
 
 functions:
-    hello:
-        handler: handler.hello
-        events:
-            - http:
-                  path: users/create
-                  method: get
-    FetchProducts:
-        handler: handler.getProducts
-        events:
-            - http:
-                  path: users/products
-                  method: get
+  createStoreDetails:
+    handler: handlers/post.createStoreDetails
+    events:
+      - http:
+          path: store/create
+          method: post
+
+  FetchProducts:
+    handler: handler.getProducts
+    events:
+      - http:
+          path: users/products
+          method: get
 
 custom:
-    serverless-offline:
-        httpPort: 8080
+  serverless-offline:
+    httpPort: 8080
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)
