@@ -19,8 +19,7 @@ function createResponse(error, result, logger, callback) {
     response.body = JSON.stringify(result)
   }
   if (callback) {
-    console.log({ error, response })
-    return callback(error, response)
+    return callback(null, response)
   }
   return response
 }

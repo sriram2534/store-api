@@ -49,13 +49,13 @@ const storeDetailSchema = new Schema({
     enum: ['US'],
   },
   latitude: {
-    type: Number,
+    type: String,
     required: true,
     unique: true,
     index: true,
   },
   longitude: {
-    type: Number,
+    type: String,
     required: true,
     unique: true,
     index: true,

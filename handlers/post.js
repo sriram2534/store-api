@@ -27,7 +27,7 @@ function createStoreDetails(event, context, callback) {
         return utils.createResponse(error, null, logger, callback)
       })
   } catch (error) {
-    callback(null, utils.createResponse(error, null, logger, stats, callback))
+    return utils.createResponse(error, null, logger, stats, callback)
   }
 }
 

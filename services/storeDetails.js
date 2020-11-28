@@ -14,7 +14,7 @@ function createStore(payload, callback) {
   }
   StoreDetailsModel.create(payload, function (error, result) {
     if (error) {
-      return callback(error)
+      return callback(error, null)
     }
     if (result) {
       return callback(null, result)
