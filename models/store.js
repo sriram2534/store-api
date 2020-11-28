@@ -16,6 +16,8 @@ const storeDetailSchema = new Schema({
   store_id: {
     type: String,
     required: true,
+    unique: true,
+    index: true,
   },
   updated_at: {
     type: Date,
@@ -27,6 +29,8 @@ const storeDetailSchema = new Schema({
   address: {
     type: String,
     required: true,
+    unique: true,
+    index: true,
   },
   city: {
     type: String,
@@ -44,13 +48,17 @@ const storeDetailSchema = new Schema({
     type: String,
     enum: ['US'],
   },
-  lat: {
+  latitude: {
     type: Number,
     required: true,
+    unique: true,
+    index: true,
   },
-  lon: {
+  longitude: {
     type: Number,
     required: true,
+    unique: true,
+    index: true,
   },
   features: {
     type: [String],

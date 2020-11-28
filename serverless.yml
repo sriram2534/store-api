@@ -61,12 +61,19 @@ functions:
           path: store/create
           method: post
 
-  FetchProducts:
-    handler: handler.getProducts
+  fetchStores:
+    handler: handlers/get.fetchStoresDetails
     events:
       - http:
-          path: users/products
-          method: get
+          path: stores/fetch
+          method: post
+
+  deleteStores:
+    handler: handlers/post.deleteStoreDetails
+    events:
+      - http:
+          path: stores/delete
+          method: delete
 
 custom:
   serverless-offline:
