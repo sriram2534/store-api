@@ -1,3 +1,6 @@
 {
-  "MONGO_CONNECTION_STRING": "mongodb+srv://chinna:chinna3093@cluster0-fflbe.mongodb.net/<dbname>?retryWrites=true&w=majority"
+    "MONGO_CONNECTION_STRING": "mongodb+srv://chinna:chinna3093@cluster0-fflbe.mongodb.net/<dbname>?retryWrites=true&w=majority"
 }
+
+// mongodb+srv://sriramteja04:teqMuhxTBxfACY85@cluster0.uuxj1uh.mongodb.net/
+// mongodb+srv://sriramteja04:teqMuhxTBxfACY85@cluster0.uuxj1uh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0

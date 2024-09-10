@@ -5,12 +5,12 @@
   "main": "config.js",
   "dependencies": {
     "bunyan": "^1.8.14",
+    "joi": "^17.13.3",
     "lodash": "^4.17.20",
-    "mongoose": "^5.9.20",
+    "mongoose": "^8.6.1",
     "serverless": "^1.74.0",
     "serverless-offline": "^6.4.0"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "sls offline --stage dev start",
     "test": "echo \"Error: no test specified\" && exit 1"
